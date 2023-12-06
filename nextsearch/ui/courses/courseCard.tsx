@@ -19,13 +19,13 @@ export default function CourseCard({course}: CourseCardProps) {
       <Card className="mt-6 ">
         <CardHeader color="blue-gray" className="relative h-56">
           <img
-            className='h-full max-w-full rounded-lg'
+            className='h-full w-full rounded-lg'
             src={`${course.img}`}
             alt="card-image"
           />
         </CardHeader>
         <CardBody>
-          <Typography variant="h5" color="blue-gray" className="mb-2">
+          <Typography variant="h4" color="blue-gray" className="mb-2">
             {course.title}
           </Typography>
           <Typography>
@@ -33,13 +33,13 @@ export default function CourseCard({course}: CourseCardProps) {
           </Typography>
         </CardBody>
         <CardFooter className="pt-0">
-        <Typography variant="h6" color="blue-gray" className="mb-2 flex">
+        <Typography variant="h5" color="blue-gray" className="mb-2 flex">
         Course Type: 
-          <Typography variant="h6" color="blue-gray" className="mb-2 ps-2">
+          <Typography variant="h5" color="blue-gray" className="mb-2 ps-2">
           {course.isFree ? 'Free🎉' : 'Paid💵'}
           </Typography>
         </Typography>
-          <Button>Enrol</Button>
+          <Button className='color-red-200'>Enrol</Button>
         </CardFooter>
       </Card>
     );

@@ -1,7 +1,16 @@
+'use server'
 import Image from 'next/image'
 import { PrismaClient } from '@prisma/client'
-import { json } from 'stream/consumers'
 import CourseCardList from '@/ui/courses/courseCardList'
+import SearchBar from '@/ui/components/search'
+
+
+const searchValue = (text?: any)=>{
+  'use server'
+  console.log("TEXT-----", text)
+  let value = text ? text : '' 
+  return value
+ }
 
 async function getCourse() {
   const prisma = new PrismaClient()
@@ -9,20 +18,16 @@ async function getCourse() {
   return courseData
 }
 
+
 export default async function Home() {
   const data = await getCourse()
   return (
     <div>
-      <div className="input-group">
-        <h1>This Search is made Using NEXTJS & Prisma...</h1>
-        <div>
-        <input type="email" className="input" id="Email" name="Email" placeholder="Enter a Course Name" />
-        <input className="button--submit" value="Search" type="submit" />
-          </div>
-      </div>
+     <SearchBar searchCallback={searchValue}/>
       <div>
         <CourseCardList list={data}/>
       </div>
     </div>
   )
 }
+export {searchValue}

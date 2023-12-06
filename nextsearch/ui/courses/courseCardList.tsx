@@ -8,7 +8,7 @@ interface CoursesListProps {
 
 export default function CoursesList({ list = [] }: CoursesListProps) {
     return (
-    <div className='grid grid-cols-4 gap-6 p-8 bg-transparent bgGrad' >
+    <div className='grid grid-cols-1 gap-12 p-8 bg-transparent bgGrad sm:grid-cols-3 md:grid-cols-4' >
         { list.map(course => <CourseCard key={course.id} course={course} />) }
     </div> )
 }
