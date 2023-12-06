@@ -2,10 +2,8 @@
 
 import React, {useState} from "react";
 
-interface dataFormProps{
-    searchCallback: (v: string)=>void
-}
-export default function SearchBar ({searchCallback = () => {} }: dataFormProps) {
+
+export default function SearchBar ({searchCallback }: any) {
     console.log("searchCallback(searchText)===", searchCallback)
     const [searchText, setSearchText] = useState('')
     console.log('SEARCHTEXT', searchText)
